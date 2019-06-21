@@ -12,25 +12,28 @@ const StylesSmurfsForm = styled.form`
     input {
         width: 300px;
         height: 30px;
+        background-color: #0076A1;
+        border: 3px solid #000;
         text-align: center;
         outline: none;
         font-size: 1.2rem;
+        color: #fff;  
     }
 
     button {
         padding: 10px;
-        background-color: #0076A1;
-        border: 3px solid #fff;
+        background-color: #9BD2EE;
+        border: 3px solid #000;
         border-bottom-right-radius: 20px;
         font-size: 1.2rem;
         font-weight: bold;
-        color: #fff;
+        color: #000;
         cursor: pointer;
 
-        &:hover {
-            background-color: #9BD2EE;
-            border: 3px solid #333;
-            color: #333;
+        &:hover {    
+            background-color: #0076A1;
+            border: 3px solid #0076A1;
+            color: #fff;
         }
     }
 

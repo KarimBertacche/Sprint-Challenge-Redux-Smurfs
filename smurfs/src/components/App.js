@@ -30,6 +30,16 @@ const StylesApp = styled.div`
     border-bottom-right-radius: 30px;
     overflow: hidden;
   }
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 75vh;
+    margin-top: 140px;
+    padding: 20px;
+    overflow: scroll;
+  }
 `;
 
 class App extends Component {
@@ -47,7 +57,9 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  addSmurfHandler = () => {
+  addSmurfHandler = (event) => {
+    event.preventDefault();
+
     this.props.addSmurf({
       name: this.state.name,
       age: this.state.age,
