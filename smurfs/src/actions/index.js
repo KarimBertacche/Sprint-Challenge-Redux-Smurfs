@@ -58,24 +58,25 @@ export const deleteSmurf = (id) => dispatch => {
       dispatch({ type: DELETE_SUCCESS, payload: response.data });
     })
     .catch(error => {
-      debugger;
+      alert(error.message, 'Fail to delete smurf, try again');
     })
     .finally(() => {
       dispatch({ type: DELETE_END });
     });
 }
 
-export const updateSmurf = (id) => dispatch => {
+export const updateSmurf = (id, { name, age, height }) => dispatch => {
+  const updatedSmurf = { name, age, height };
 
   dispatch({ type: UPDATE_START });
 
   axios
-    .put(smurfsData + '/' + id)
+    .put(smurfsData + '/' + id, updatedSmurf)
     .then(response => {
-
+      dispatch({ type: UPDATE_SUCCESS, payload: response.data });
     })
     .catch(error => {
-
+      alert(error.message, 'Fail to update smurf, try again');
     })
     .finally(() => {
       dispatch({ type: UPDATE_END })

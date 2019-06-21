@@ -29,10 +29,11 @@ const StylesSmurfsForm = styled.form`
         font-weight: bold;
         color: #000;
         cursor: pointer;
+        z-index: 10;
 
         &:hover {    
             background-color: #0076A1;
-            border: 3px solid #0076A1;
+            border: 3px solid #000;
             color: #fff;
         }
     }
@@ -41,7 +42,8 @@ const StylesSmurfsForm = styled.form`
 
 function SmurfsForm(props) {
     return (
-        <StylesSmurfsForm onSubmit={props.addSmurfHandler}>
+        <StylesSmurfsForm 
+            onSubmit={props.formText === 'Add smurf' ? props.addSmurfHandler : props.updateSmurfHandler}>
             <input 
                 type="text" 
                 name="name"
@@ -61,7 +63,7 @@ function SmurfsForm(props) {
                 onChange={props.inputChangeHandler}
                 min="1"
                 max="10"/>
-            <button type="submit">Add smurf</button>
+            <button type="submit">{props.formText}</button>
         </StylesSmurfsForm>
     )
 }

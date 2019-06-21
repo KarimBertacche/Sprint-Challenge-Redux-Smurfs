@@ -28,7 +28,6 @@ const StylesApp = styled.div`
     align-items: flex-end;
     background: red;
     border-bottom-right-radius: 30px;
-    overflow: hidden;
   }
 
   section {
@@ -47,6 +46,8 @@ class App extends Component {
     name: '',
     age: '',
     height: '',
+    id: null,
+    formText: 'Add smurf'
   }
 
   componentDidMount() {
@@ -73,8 +74,32 @@ class App extends Component {
     });
   }
 
-  updateSmurfHandler = () => {
-    this.props.updateSmurf()
+  passSmurfHandler = (data) => {
+    this.setState({
+      name: data.name,
+      age: data.age,
+      height: data.height,
+      id: data.id,
+      formText: 'Update smurf'
+    })
+  }
+
+  updateSmurfHandler = (event) => {
+    event.preventDefault();
+
+    this.props.updateSmurf(this.state.id, {
+      name: this.state.name,
+      age: this.state.age,
+      height: this.state.height
+    });
+
+    this.setState({
+      name: '',
+      age: '',
+      height: '',
+      id: null,
+      formText: 'Add smurf'
+    })
   }
 
   deleteSmurfHandler = (id) => {
@@ -89,7 +114,9 @@ class App extends Component {
             name={this.state.name}
             age={this.state.age}
             height={this.state.height}
+            formText={this.state.formText}
             inputChangeHandler={this.inputChangeHandler}
+            updateSmurfHandler={this.updateSmurfHandler}
             addSmurfHandler={this.addSmurfHandler}
           />
         </header>
@@ -102,7 +129,7 @@ class App extends Component {
                         name={smurf.name}
                         age={smurf.age}
                         height={smurf.height}
-                        updateSmurfHandler={this.updateSmurfHandler}
+                        passSmurfHandler={this.passSmurfHandler}
                         deleteSmurfHandler={this.deleteSmurfHandler}
                       />
             })

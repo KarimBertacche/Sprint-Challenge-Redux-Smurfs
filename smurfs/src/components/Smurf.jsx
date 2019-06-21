@@ -57,7 +57,7 @@ function Smurf(props) {
             <h2>name:<span>{props.name}</span></h2>
             <p>age: <span>{props.age} year old</span></p>
             <p>height: <span>{props.height}</span></p>
-            <button onClick={props.updateSmurfHandler}>Update Smurf</button>
+            <button onClick={() => props.passSmurfHandler({...props})}>Update Smurf</button>
         </StylesSmurf>
     );
 }
