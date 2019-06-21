@@ -30,8 +30,8 @@ export const fetchingSmurfs = () => dispatch => {
     });
 }
 
-export const addSmurf = ({name, age, height}) => dispatch => {
-  const newSmurf = { name, age, height };
+export const addSmurf = ({name, age, height, img}) => dispatch => {
+  const newSmurf = { name, age, height, img };
 
   dispatch({ type: ADD_START })
 

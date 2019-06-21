@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const StylesSmurf = styled.div`
     position: relative;
-    width: 200px;
-    height: 170px;
+    width: 300px;
+    height: 575px;
     background-color: #9BD2EE;
     border: 3px solid #0076A1;
     border-radius: 20px;
@@ -54,9 +54,10 @@ function Smurf(props) {
     return (
         <StylesSmurf>
             <i onClick={() => props.deleteSmurfHandler(props.id)}>X</i>
+            <img src={props.img} alt={props.names}/>
             <h2>name:<span>{props.name}</span></h2>
             <p>age: <span>{props.age} year old</span></p>
-            <p>height: <span>{props.height}</span></p>
+            <p>height: <span>{props.height}cm</span></p>
             <button onClick={() => props.passSmurfHandler({...props})}>Update Smurf</button>
         </StylesSmurf>
     );

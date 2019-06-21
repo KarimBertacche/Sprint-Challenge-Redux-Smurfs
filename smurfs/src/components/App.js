@@ -46,6 +46,7 @@ class App extends Component {
     name: '',
     age: '',
     height: '',
+    img: '',
     id: null,
     formText: 'Add smurf'
   }
@@ -61,16 +62,27 @@ class App extends Component {
   addSmurfHandler = (event) => {
     event.preventDefault();
 
-    this.props.addSmurf({
-      name: this.state.name,
-      age: this.state.age,
-      height: this.state.height
-    });
+    if(this.state.img === '') {
+      this.props.addSmurf({
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height,
+        img: 'https://www.stickpng.com/assets/thumbs/5a7b6d71abc3d121aba7109d.png'
+      });
+    } else {
+      this.props.addSmurf({
+        name: this.state.name,
+        age: this.state.age,
+        height: this.state.height,
+        img: this.state.img
+      });
+    }
 
     this.setState({
       name: '',
       age: '',
-      height: ''
+      height: '',
+      img: ''
     });
   }
 
@@ -114,6 +126,7 @@ class App extends Component {
             name={this.state.name}
             age={this.state.age}
             height={this.state.height}
+            img={this.state.img}
             formText={this.state.formText}
             inputChangeHandler={this.inputChangeHandler}
             updateSmurfHandler={this.updateSmurfHandler}
@@ -129,6 +142,7 @@ class App extends Component {
                         name={smurf.name}
                         age={smurf.age}
                         height={smurf.height}
+                        img={smurf.img}
                         passSmurfHandler={this.passSmurfHandler}
                         deleteSmurfHandler={this.deleteSmurfHandler}
                       />
