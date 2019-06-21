@@ -35,7 +35,7 @@ const StylesApp = styled.div`
     flex-wrap: wrap;
     width: 100%;
     height: 75vh;
-    margin-top: 140px;
+    margin-top: 165px;
     padding: 20px;
     overflow: scroll;
   }
